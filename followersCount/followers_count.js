@@ -29,3 +29,10 @@ function increaseCount() {
     displaycount(); // Displays the count
     checkCountValue(); // Check count value, display messages
 }
+
+// Reset Count Button Practice
+function resetCount() {
+    count = 0;
+    alert("Your follower count has been reset.");
+    document.getElementById("countDisplay").innerText = count;
+}
