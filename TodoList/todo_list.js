@@ -35,13 +35,19 @@ function toggleTask(index) {
     displayTasks();
 }
 
-// Completed Tasks - Clear
-function clearCompletedTasks() {
+// Clear Tasks
+function clearCompletedTasks() { // Clears Completed Tasks Only
     tasks = tasks.filter(task => !task.completed);
+    displayTasks();
+}
+
+function clearAllTasks() {
+    tasks = [];
     displayTasks();
 }
 
 // EventListeners
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+clearAllBtn.addEventListener("click", clearAllTasks);
 displayTasks();
