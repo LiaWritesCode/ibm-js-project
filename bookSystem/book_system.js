@@ -10,8 +10,6 @@ function addBook() {
    
     const editIndex = document.getElementById('addBookButton').getAttribute('data-edit-index');
     const indexToEdit = editIndex !== null ? parseInt(editIndex) : null;
-    
-    console.log("📚 Current Books Array:", books);
 
     if (bookName && authorName && bookDescription && !isNaN(pagesNumber)) {
         const book = {
@@ -42,7 +40,8 @@ function showbooks() {
         <p><strong>Author Name:</strong> ${book.authorName}</p>
         <p><strong>Book Descrption:</strong> ${book.bookDescription}</p>
         <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)
-        <button onclick="editbook(${index})">Edit</button>`
+        <button onclick="editbook(${index})">Edit</button>
+        <button onclick="deletebook(${index})">Delete</button>`
     );
     document.getElementById('books').innerHTML = booksDiv.join('')    
 }
@@ -56,6 +55,12 @@ function editbook(index) {
     document.getElementById('pagesNumber').value = book.pagesNumber;
     document.getElementById('addBookButton').setAttribute('data-edit-index', index)
     showbooks(); // Refreshes the list
+}
+
+// Delete Books
+function deletebook(index) {
+    books.splice(index, 1); // removes book at index
+    showbooks(); // refreshes the list
 }
 
 // Clear Book Details
